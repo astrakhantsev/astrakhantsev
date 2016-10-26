@@ -7,18 +7,18 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Site Title"
+title                    : "Practical Natural Language Processing Blog"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "Nikita Astrakhantsev"
+description              : "Blog devoted to practical aspects of NLP: working methods, libraries, tools."
+url                      : https://github.io.astrakhantsev # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : astrakhantsev/astrakhantsev # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : "staticman" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -67,7 +67,7 @@ social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-
+    - "https://www.linkedin.com/in/nikita-astrakhantsev-6072657b"
 # Analytics
 analytics:
   provider               : false # false (default), "google", "google-universal", "custom"
@@ -77,10 +77,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Nikita Astrakhantsev"
   avatar           : "bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  bio              : 
+  location         : "Moscow, Russia"
   email            :
   uri              :
   bitbucket        :
@@ -89,15 +89,15 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "https://github.com/astrakhantsev"
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/nikita-astrakhantsev-6072657b"
   pinterest        :
   soundcloud       :
-  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
+  stackoverflow    : "4588780/nikita-astrakhantsev" # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
   steam            :
   tumblr           :
   twitter          :
@@ -227,3 +227,18 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+    
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      
+
