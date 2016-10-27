@@ -84,7 +84,8 @@ I copy-pasted this voiceless catch - the main mistake - and everything seemed to
 
 However, I started to get many misses for completely common words.
 So, I took a look at the [source code](https://github.com/Refefer/word2vec-scala/blob/b75b33201a1b073d5e47b6b48837ede905a9e301/src/main/scala/word2vec/Reader.scala#L98) a little more:
-```scala
+
+{% highlight scala linenos %}
 def readVector(reader: VecBinaryReader, vecSize:Int, normalize: Boolean): (String, Array[Float]) = {
      // Read the word
     val word = reader.read[String]
@@ -100,15 +101,17 @@ def readVector(reader: VecBinaryReader, vecSize:Int, normalize: Boolean): (Strin
     // Store the normalized vector representation, keyed by the word
     word -> (if (normalize) normVector(vector) else vector)
 }
-```
+{% endhighlight %}
 
 This line looks susceptible:
-```scala
+
+{% highlight scala %}
 // Eat up the next delimiter character
     reader.read[Byte]
-```
+{% endhighlight %}
 
 Let's examine the excerpt from the model file:
+
 ```
 ID/united_states 2dr?`C?>?{???>?`?>???>o>[?!???d?Y?>?,??q? ???"??%?????>?"=??l?=!	??#F=??$??8|??J(????>X(?p7>v???`????>??=??????>)%??u????>Hb?.?
 ??=?n????1???=??>yX?>?????1>???>???><?{?s???!-?>U????
