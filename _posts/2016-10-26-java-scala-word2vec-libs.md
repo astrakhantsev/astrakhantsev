@@ -63,7 +63,8 @@ But it is based on Scala's `List`, which compiles to Java's `List` (see correspo
 It doesn't contain sim/cos and hasn't been updated since the very 2013.
 
 [word2vec-scala](https://github.com/trananh/word2vec-scala) - Apache License, Array of float, one-file with no dependency; sim/cos implemented.
-The only minor not that it hasn't been updated since the very 2013.
+The only minor note that it hasn't been updated since the very 2013.
+
 Luckily, [Refefer](https://github.com/Refefer) updated it:
 split into 2 classes (Reader and Model)
 and rewrote Model so that it is based on spire and, hopefully, works faster.
@@ -87,19 +88,19 @@ So, I took a look at the [source code](https://github.com/Refefer/word2vec-scala
 
 {% highlight scala linenos %}
 def readVector(reader: VecBinaryReader, vecSize:Int, normalize: Boolean): (String, Array[Float]) = {
-     // Read the word
-    val word = reader.read[String]
+// Read the word
+val word = reader.read[String]
 
-    val vector = new Array[Float](vecSize)
-    for((f, i) <- reader.read[Stream[Float]].take(vecSize).zipWithIndex) {
-      vector(i) = f
-    }
+val vector = new Array[Float](vecSize)
+for((f, i) <- reader.read[Stream[Float]].take(vecSize).zipWithIndex) {
+  vector(i) = f
+}
 
-    // Eat up the next delimiter character
-    reader.read[Byte]
+// Eat up the next delimiter character
+reader.read[Byte]
 
-    // Store the normalized vector representation, keyed by the word
-    word -> (if (normalize) normVector(vector) else vector)
+// Store the normalized vector representation, keyed by the word
+word -> (if (normalize) normVector(vector) else vector)
 }
 {% endhighlight %}
 
@@ -107,7 +108,7 @@ This line looks susceptible:
 
 {% highlight scala %}
 // Eat up the next delimiter character
-    reader.read[Byte]
+reader.read[Byte]
 {% endhighlight %}
 
 Let's examine the excerpt from the model file:
