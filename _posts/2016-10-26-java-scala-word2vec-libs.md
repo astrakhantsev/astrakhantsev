@@ -36,20 +36,23 @@ permissive license, little dependencies, readable code.
 So, what are our options?
 
 ## Java libraries
-The first one in google for "word2vec java" is [deeplearning4j](https://deeplearning4j.org):
+The first one in google for "word2vec java" is [deeplearning4j](https://deeplearning4j.org) -
 it is huge, requires a lot of stuff,
 so we'd prefer to start with something more lightweight (but we'll return to it in the next post).
 
 The next one is [Word2VecJava](https://github.com/medallia/Word2VecJava)
-What catches our eyes? They use `double[]` for vectors storage; despite the fact that binary format stores floats, so there would be no information loss. And all potential loss in accuracy caused by operations under vectors like cosine in case of float instead of doubles would be negligible compared to the loss caused by twice lower dimension of the vector (on condition of the same memory consumption).
+
+What catches our eyes? They use `double[]` for vectors storage; despite the fact that binary format stores floats, so there would be no information loss. 
+And all potential loss in accuracy caused by operations under vectors of floats instead of vectors of doubles would be negligible compared to the loss caused by twice lower dimension of the vector (on condition of the same memory consumption).
 
 Thus we have 1 more requirement for a lib: float vectors. Moreover, as float arrays, not Lists, because, we all know, Float weights as double double (sorry for bad wordplay).
 
 The third hit leads to [Apache Spark](http://spark.apache.org/docs/latest/ml-features.html#word2vec). 
+
 Again, too heavy, plus they don't have sim/cos;
 it is not hard to implement, but what was the reason not to create it?
-But worse, it still can't load pre-trained models of gensim or original word2vec
-(see [old issue](https://issues.apache.org/jira/browse/SPARK-9484) unresolved yet).
+But worse, it still can't load pre-trained models of gensim or original word2vec,
+see [old issue](https://issues.apache.org/jira/browse/SPARK-9484) unresolved yet.
 
 There are also some abandoned non-English [repos](https://github.com/NLPchina/Word2VEC_java)
 with strange code in Readme file.
@@ -59,8 +62,10 @@ Not so much. Let's google for Scala.
 ## Scala libraries
 [read_word_vectors.scala](https://github.com/awhogue/word2vec-scala/blob/master/read_word_vectors.scala) -
 ok, it is licensed under Apache 2.0, utterly simple one-file with no dependency.
-But it is based on Scala's `List`, which compiles to Java's `List` (see corresponding [SO answer](http://stackoverflow.com/questions/2712877/difference-between-array-and-list-in-scala)
-It doesn't contain sim/cos and hasn't been updated since the very 2013.
+
+But it is based on Scala's `List`, which compiles to Java's `List`, see corresponding [SO answer](http://stackoverflow.com/questions/2712877/difference-between-array-and-list-in-scala)
+
+It doesn't matter already, but this lib doesn't contain sim/cos and hasn't been updated since the very 2013.
 
 [word2vec-scala](https://github.com/trananh/word2vec-scala) - Apache License, Array of float, one-file with no dependency; sim/cos implemented.
 The only minor note that it hasn't been updated since the very 2013.
