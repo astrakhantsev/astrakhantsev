@@ -88,19 +88,19 @@ So, I took a look at the [source code](https://github.com/Refefer/word2vec-scala
 
 {% highlight scala linenos %}
 def readVector(reader: VecBinaryReader, vecSize:Int, normalize: Boolean): (String, Array[Float]) = {
-// Read the word
-val word = reader.read[String]
+     // Read the word
+    val word = reader.read[String]
 
-val vector = new Array[Float](vecSize)
-for((f, i) <- reader.read[Stream[Float]].take(vecSize).zipWithIndex) {
-  vector(i) = f
-}
+    val vector = new Array[Float](vecSize)
+    for((f, i) <- reader.read[Stream[Float]].take(vecSize).zipWithIndex) {
+      vector(i) = f
+    }
 
-// Eat up the next delimiter character
-reader.read[Byte]
+    // Eat up the next delimiter character
+    reader.read[Byte]
 
-// Store the normalized vector representation, keyed by the word
-word -> (if (normalize) normVector(vector) else vector)
+    // Store the normalized vector representation, keyed by the word
+    word -> (if (normalize) normVector(vector) else vector)
 }
 {% endhighlight %}
 
