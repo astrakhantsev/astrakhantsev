@@ -1,6 +1,5 @@
 ---
 title: 'Java/Scala tools for working with word2vec models'
-layout: post
 permalink: /java-scala-word2vec-libs/
 categories:
   - Tools
