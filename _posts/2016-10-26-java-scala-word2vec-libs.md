@@ -99,7 +99,7 @@ def readVector(reader: VecBinaryReader, vecSize:Int, normalize: Boolean): (Strin
 
     // Store the normalized vector representation, keyed by the word
     word -> (if (normalize) normVector(vector) else vector)
-} ```
+}
 ```
 This line looks susceptible:
 ```scala
