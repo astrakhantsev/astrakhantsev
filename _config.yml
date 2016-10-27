@@ -80,7 +80,7 @@ author:
   name             : "Nikita Astrakhantsev"
   avatar           : "bio-photo.jpg"
   bio              : 
-  location         : "Moscow, Russia"
+  location         :
   email            :
   uri              :
   bitbucket        :
@@ -89,12 +89,12 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/astrakhantsev"
+  github           : "astrakhantsev"
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/nikita-astrakhantsev-6072657b"
+  linkedin         : "nikita-astrakhantsev-6072657b"
   pinterest        :
   soundcloud       :
   stackoverflow    : "4588780/nikita-astrakhantsev" # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
