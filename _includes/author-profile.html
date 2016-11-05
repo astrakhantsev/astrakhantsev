@@ -46,9 +46,6 @@
       {% if author.linkedin %}
         <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
       {% endif %}
-      {% if author.xing %}
-        <li><a href="https://www.xing.com/profile/{{ author.xing }}"><i class="fa fa-fw fa-xing-square" aria-hidden="true"></i> XING</a></li>
-      {% endif %}
       {% if author.instagram %}
         <li><a href="https://instagram.com/{{ author.instagram }}"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
       {% endif %}
@@ -94,8 +91,8 @@
       {% if author.codepen %}
         <li><a href="https://codepen.io/{{ author.codepen }}"><i class="fa fa-fw fa-codepen" aria-hidden="true"></i> CodePen</a></li>
       {% endif %}
-      {% if author.vine %}
-        <li><a href="https://vine.co/u/{{ author.vine }}"><i class="fa fa-fw fa-vine" aria-hidden="true"></i> Vine</a></li>
+      {% if author.google_scholar %}
+        <li><a href="https://scholar.google.com/citations?user={{ author.google_scholar }}"><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
       {% endif %}
     </ul>
   </div>
