@@ -148,9 +148,10 @@ i.e. to compute semantic similarity between some set of words/collocation and so
 
 I performed this task with 2 libs (dl4j and word2vec-scala), 
 keeping all other conditions the same, including word2vec model.
+I didn't try to make precise evaluation, so there is no averaging of multiple launches, to say nothing about JVM warming-up.
 
 I measured 2 times:
-1. Time needed to load word2vec model: word2vec-scala requires about **60-70s**, while dl4j -- **150-180s**.
+1. Time needed to load word2vec model: word2vec-scala requires about 60-70s, while dl4j -- 150-180s.
 2. Time needed to compute semantic similarities.
 
 Table below contains one row per dataset; 
@@ -169,9 +170,9 @@ Table below contains one row per dataset;
 
 As we can see, dl4j works significantly slower.
 
-This may be caused by several reasons, which I actually don't want to investigate.
-Probably, there is some flaw in experiment setup, so take these results with a grain of salt.
-Probably, this is due to missing native libraries on my machine; 
+This may be caused by several reasons.
+Probably, there is some flaw in experiment setup, so -- again -- take these results with a grain of salt.
+Probably, dl4j works so slow because of missing native libraries on my machine; 
 I tried to install different blas listed in [ND4j guide](http://nd4j.org/getstarted.html),
 but it isn't trivial and I didn't invest much time into that.
 
@@ -179,5 +180,4 @@ However, note that deeplearning4j keeps evolving, for example their [new guide](
 maybe, Intel MKL, which dl4j recommends to use and which I didn't check, already speeds up this.
 
 In sum, when you read this, dl4j may work faster, but be ready to spend time playing with setup.
-
-[//]: # (So, currently and/or for small projects in Java/Scala I'd recommend to use word2vec-scala.)
+Or, if all you need is read model and compute a few dot-products -- use word2vec-scala.
