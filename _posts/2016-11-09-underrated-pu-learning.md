@@ -1,6 +1,6 @@
 ---
 title: 'Underrated Positive-Unlabeled learning: specifics, use-cases and tools'
-excerpt: "PU learning relates to semi-supervised learning, outlier detection, ordinary supervised learning, but has important specifics, which I try to describe in this post with multiple examples."
+excerpt: "PU learning relates to semi-supervised learning, outlier detection, ordinary supervised learning, but has its own specifics, which I try to describe here."
 permalink: /pu-learning/
 tags:
   - ML
