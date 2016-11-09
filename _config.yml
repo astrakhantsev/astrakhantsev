@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Practical Natural Language Processing"
+title                    : "Practical NLP and ML"
 title_separator          : "-"
 name                     : "Nikita Astrakhantsev"
 description              : "Blog devoted to practical aspects of NLP: working methods, libraries, tools."
