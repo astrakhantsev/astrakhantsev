@@ -8,7 +8,7 @@ tags:
 ---
 
 Since the invention of word2vec in 2013,
-it managed to go all the way in NLP from funny toy (_hey, dollar+Russia-USA=63 already!_)
+it managed to go all the way in NLP from funny toy (_hey, Putin+USA-Russia=Trump already!_)
 to silver bullet (_look, we can find semantically similar words by word2vec and solve the whole task!_)
  and, finally, to mainstream (_ok, have you already tried word2vec for this task?_).
 
