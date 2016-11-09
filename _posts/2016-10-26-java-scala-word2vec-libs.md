@@ -39,20 +39,21 @@ So, what are our options?
 ## Java libraries
 The first one in google for "word2vec java" is [deeplearning4j](https://deeplearning4j.org) -
 it is huge, requires a lot of stuff,
-so we'd prefer to start with something more lightweight (but we'll return to it in the next post).
+so we'd prefer to start with something more lightweight; we return to this by the end of the post.
 
 The next one is [Word2VecJava](https://github.com/medallia/Word2VecJava)
 
-What catches our eyes? They use `double[]` for vectors storage; despite the fact that binary format stores floats, so there would be no information loss. 
+What catches our eyes? They use `double[]` for vectors storage; despite the fact that binary format stores `float`s, so there would be no information loss. 
 And all potential loss in accuracy caused by operations under vectors of floats instead of vectors of doubles would be negligible compared to the loss caused by twice lower dimension of the vector (on condition of the same memory consumption).
 
-Thus we have 1 more requirement for a lib: float vectors. Moreover, as float arrays, not Lists, because, we all know, Float weights as double double (sorry for bad wordplay).
+Thus we have 1 more requirement for a lib: float vectors. 
+Moreover, as float arrays, not Lists, because, we all know, Float weights as double double (_sorry for bad wordplay_).
 
 The third hit leads to [Apache Spark](http://spark.apache.org/docs/latest/ml-features.html#word2vec). 
 
 Again, too heavy, plus they don't have sim/cos;
-it is not hard to implement, but what was the reason not to create it?
-But worse, it still can't load pre-trained models of gensim or original word2vec,
+it is not that hard to implement, but what was the reason not to create this?
+What is worse, it still can't load pre-trained models of gensim or original word2vec,
 see [old issue](https://issues.apache.org/jira/browse/SPARK-9484) unresolved yet.
 
 There are also some abandoned non-English [repos](https://github.com/NLPchina/Word2VEC_java)
@@ -64,11 +65,10 @@ Not so much. Let's google for Scala.
 [read_word_vectors.scala](https://github.com/awhogue/word2vec-scala/blob/master/read_word_vectors.scala) -
 ok, it is licensed under Apache 2.0, utterly simple one-file with no dependency.
 
-But it is based on Scala's `List`, which compiles to Java's `List`, see corresponding [SO answer](http://stackoverflow.com/questions/2712877/difference-between-array-and-list-in-scala)
+But it is based on Scala's `List`, which compiles to Java's `List`, see corresponding [SO answer](http://stackoverflow.com/questions/2712877/difference-between-array-and-list-in-scala).
+In addition -- while it doesn't already matter -- this lib doesn't contain sim/cos and hasn't been updated since the very 2013.
 
-It doesn't matter already, but this lib doesn't contain sim/cos and hasn't been updated since the very 2013.
-
-[word2vec-scala](https://github.com/trananh/word2vec-scala) - Apache License, Array of float, one-file with no dependency; sim/cos implemented.
+[word2vec-scala](https://github.com/trananh/word2vec-scala) -- Apache License, `Array` of `float`, one-file with no dependency; sim/cos implemented.
 The only minor note that it hasn't been updated since the very 2013.
 
 Luckily, [Refefer](https://github.com/Refefer) updated it:
@@ -79,15 +79,15 @@ I have chosen this library.
 
 ### Small war story
 
-I checked the model provided with the code - unsurprisingly, everything worked.
+I checked the model provided with the code -- unsurprisingly, everything worked.
 
 I took the model trained by modern genism;
 tried to load it and it failed with `EOFException` during model file reading.
 
 Then ~~- hour for choosing library was coming to end -~~ I searched for exception message at stackoverflow,
-read the [top answer](http://stackoverflow.com/questions/18451232/eofexception-how-to-handle) diagonally (is there such an idiom in English?) -
+read the [top answer](http://stackoverflow.com/questions/18451232/eofexception-how-to-handle) diagonally (_is there such an idiom in English?_) --
 it advised to simply catch exception.
-I copy-pasted this voiceless catch - the main mistake - and everything seemed to work fine.
+I copy-pasted this voiceless catch -- the main mistake -- and everything seemed to work fine.
 
 However, I started to get many misses for completely common words.
 So, I took a look at the [source code](https://github.com/Refefer/word2vec-scala/blob/b75b33201a1b073d5e47b6b48837ede905a9e301/src/main/scala/word2vec/Reader.scala#L98) a little more:
@@ -129,11 +129,10 @@ ID/united_states 2dr?`C?>?{???>?`?>???>o>[?!???d?Y?>?,??q? ???"??%?????>?"=??
 >x;[?@5?>?t?U????>1?$?7?(??=@??????c?>??H??>??h??7w>S^y??????-?????????CJ=??{??	????>D???|?>??zK3=?z??d=??ID/association_football ???>???j8Q?ao)?2???>)?|???
 ```
 
-If we look at the distance between 2 words `ID/united_states` and `ID/world_war_ii`, there are 400 bytes, thus there is no delimiter in new model.
-Btw, it proves that each element weighs 4 bytes, i.e. it is float.
+If we look at the distance between 2 words `ID/united_states` and `ID/world_war_ii`, we find 400 bytes, thus there is no delimiter in new model.
+Btw, it proves that each element weighs 4 bytes, i.e. it is `float`.
 
-It is not a bug. If we look at the old model, it has a delimiter (and then, we have support for old models in dl4j, see below).
-Obviously, the model format has changed; I don't know, who introduced that - maybe, gensim.
+It is not a bug: obviously, an old model has a delimiter, but then the model format has changed; I don't know, who introduced that -- maybe, gensim.
 
 Of course, we can determine model format automatically, because we know word vectors size (it is written in the model file prefix),
 but it is much simpler to set it up in parameter and, most probably, no one would use old models.
