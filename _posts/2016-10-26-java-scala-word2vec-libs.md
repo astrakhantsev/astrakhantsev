@@ -151,7 +151,9 @@ keeping all other conditions the same, including word2vec model.
 I didn't try to make precise evaluation, so there is no averaging of multiple launches, to say nothing about JVM warming-up.
 
 I measured 2 times:
+
 1. Time needed to load word2vec model: word2vec-scala requires about 60-70s, while dl4j -- 150-180s.
+
 2. Time needed to compute semantic similarities.
 
 Table below contains one row per dataset; 
