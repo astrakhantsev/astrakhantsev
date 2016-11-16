@@ -20,7 +20,7 @@ at least in my experience an addition of unlabeled data didn't improve results, 
 
 In anomaly detection (_how handy it is to have perfect synonyms -- the simplest way to cope with tautology!_),
 outliers are usually not similar to each other, while non-outliers, i.e. negatives, are similar, e.g. they are assumed to be from the same distribution;
-in other words, we can't say that 2 outliers are more similar to each other than an outlier -- to another non-outlier.
+in other words, we can't say that 2 outliers are more similar to each other than an outlier -- to a non-outlier.
 
 Contrariwise, in PU we have positives similar to each other and we know (hope) that they are not similar to negatives.
 (And we can't simply declare all unlabeled instances as negatives,
