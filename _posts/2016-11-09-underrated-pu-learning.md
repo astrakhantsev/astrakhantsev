@@ -7,25 +7,24 @@ tags:
   - Tools
 ---
 
-Positive-Unlabeled learning (PU) is a learning of ordinary binary classifier from only positive and unlabeled instances.
-It relates to outlier/anomaly detection, semi-supervised learning (SSL) as well as ordinary supervised learning, but has important specifics, which I describe below.
+[Positive-Unlabeled learning](https://en.wikipedia.org/wiki/One-class_classification#PU_learning) (PU) is a learning of ordinary binary classifier from only positive and unlabeled instances.
+It relates to [outlier/anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection), [semi-supervised learning](https://en.wikipedia.org/wiki/Semi-supervised_learning) (SSL) as well as ordinary supervised learning, but has important specifics, which I describe below.
 
 ## PU learning vs semi-supervised learning and outlier detection
 
 Similarity stems from the fact that in all cases we try to build binary classifier from insufficient data: 
 in outlier detection we don't have enough positive instances, while in SSL setting we simply don't have enough any labeled data.
 
-However, in SSL we use unlabeled only for improving classifier --
-however, it is rarely used in practice;
-at least in my experience addition of unlabeled results didn't improve results, even for very small labeled data.
+Returning to distinctions, in SSL we use unlabeled data only for improving classifier -- however, this is rarely used in practice;
+at least in my experience an addition of unlabeled data didn't improve results, even for very small labeled data.
 
 In anomaly detection (_how handy it is to have perfect synonyms -- the simplest way to cope with tautology!_),
-outliers are usually not similar to each other, while non-outliers, i.e. negatives, are similar (e.g. they are assumed to be from the same distribution);
-in other words, we can't say that 2 outliers are more similar to each other than outlier -- to non-outlier.
+outliers are usually not similar to each other, while non-outliers, i.e. negatives, are similar, e.g. they are assumed to be from the same distribution;
+in other words, we can't say that 2 outliers are more similar to each other than an outlier -- to another non-outlier.
 
 Contrariwise, in PU we have positives similar to each other and we know (hope) that they are not similar to negatives.
 (And we can't simply declare all unlabeled instances as negatives,
-because these unlabeleds may contains a lot of positives, not less than we have explicitly labeled as positives.)
+because these unlabeleds may contain a lot of positives, not less than we have explicitly labeled as positives.)
 
 Good example is a websites classification: if we want to separate restaurant sites from all others,
 we can easily crawl dozens of positives, but it'll be hard to crawl representative negatives,
@@ -45,10 +44,10 @@ and even to be included into the name of the most popular way of word2vec traini
 namely skip-gram model with negative sampling (SGNS).
 
 The only thing I'd like to warn is that you should use such negative sampling consciously, 
-otherwise you risk to have kind of sample selection bias, i.e. obtain good quality on cross-validation, but fail in production.
+otherwise you risk to have a kind of sample selection bias, i.e. obtain a good quality on cross-validation, but fail in production.
 
 One more example when shift from supervised learning to PU can help is word sense disambiguation --
-choosing correct meaning for a term (word or collocation) depending on the context.
+choosing correct meaning for a term (word or collocation) depending on the context:
 
 Assume that you have data labeled with non-perfect guide,
 e.g. without formulation of boundary cases or needed level of sense-granularity,
@@ -69,7 +68,7 @@ Of course, it is better to fix the source of the problem, i. e. 2 assumptions me
 
 Another useful pipeline that was tested a couple of times (including my PhD work): 
 from all unlabeled examples somehow extract positives, then learn PU on that.
-Note that such positives should be precise, but heterogene/representative at the same time, so prefer simple heuristic.
+Note that such positives should be precise, but heterogeneous/representative at the same time, so prefer simple heuristic.
 
 Thus you'll have fully unsupervised approach that may learn from data in some sense --
 of course, if your task lets invention of appropriate heuristic for seed positives extraction.
