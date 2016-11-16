@@ -8,7 +8,7 @@ tags:
 ---
 
 Positive-Unlabeled learning (PU) is a learning of ordinary binary classifier from only positive and unlabeled instances.
-It relates to outlier/anomaly detection, semi-supervised learning (SSL) as well as oridnary supervised learning, but has important specifics, which I describe below.
+It relates to outlier/anomaly detection, semi-supervised learning (SSL) as well as ordinary supervised learning, but has important specifics, which I describe below.
 
 ## PU learning vs semi-supervised learning and outlier detection
 
