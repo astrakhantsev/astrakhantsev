@@ -8,7 +8,7 @@ tags:
 ---
 
 There are many [guides](https://opensource.com/law/13/1/which-open-source-software-license-should-i-use) and even [sites](http://choosealicense.com/) to help in choosing a license for your code without understanding of these licenses.
-Obviuosly, these guide have to provide an abstraction over details in order to be comprehensible and particular abstractions can't be well-suited for everyone.
+Obviuosly, these guide have to provide an abstraction over details in order to be comprehensible and one or two abstractions can't be well-suited for everyone.
 
 Here I'd like to provide yet another abstraction by focusing on practical, even pragmatic, concerns; in other words -- if you want to extract maximum profit from the code without regard to particular types of freedom.
 
@@ -20,11 +20,10 @@ If you have managed to create an end-user application like text editor or game a
 If ~~enough time passed~~ you don't belive that the app can be sold -- e.g. because it is yet another text editor -- then go with GPL.
 The reason is simple: users would have source code, which gives some pluses for reputation and possible bug fixes, but you are protected from [Embrace, extend and extinguish](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish).
 
-From all kinds of GPL prefer AGPL, because it prevents from Application Service Provider (ASP) loophole, or SaaS loophole. which is especially relevant, ~~if you are paranoid like me~~ if your application can be used as a service. 
+From all kinds of GPL, prefer AGPL, because it prevents from Application Service Provider loophole, or SaaS loophole. which is especially relevant, ~~if you are paranoid like me~~ if your application can be used as a service. 
 
 If you are still hesitate if the app can be sold and think about dual licensing, then I have to disappoint you: it is extremely unlikely that dual-licensing will work for you. 
 Read this good [meta-analysis](https://wiki.oulu.fi/download/attachments/58197330/ossd_2015_lauri_leimurautio_vuollet.pdf?version=1&modificationDate=1448956483000&api=v2); in short: it can work only if your app is supposed to be used as a part of something and, much harder condition, if it can take a huge market share. In addition to working dual-licensed examples from the paper above, I'd add Stanford NLP, which is still the best Java NLP library.
-
 
 If you created a library, then basically you have a choice from 2 alternatives: MIT/BSD vs Apache 2.0.
 Motivation is simple again: you want to have as many users as possible, because their number is directly proportional to gained reputation (ok, cover it by goodwill), and only permissive licenses can provide that.
