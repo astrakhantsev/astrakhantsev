@@ -1,6 +1,6 @@
 ---
 title: 'Pragmatic guide to choosing a license for your program'
-excerpt: "There are many guides to choosing a software license, but they are too vague and philosophic; here I try to formulate clear criteria for pragmatic choice, i.e. that maximizing possible profit."
+excerpt: "There are many guides to choosing a software license, but they are too philosophic; here I try to formulate clear criteria for pragmatic choice."
 permalink: /choosing-license/
 tags:
   - Tools
