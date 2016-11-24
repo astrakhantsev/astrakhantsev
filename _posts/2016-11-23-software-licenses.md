@@ -7,6 +7,8 @@ tags:
   - Social science
 ---
 
+**TL;DR:** if you developed a library, especially for ML/NLP, and it doesn't improve state-of-the-art by dozens of percents, then choose Apache 2.0; if it is an end-user application, choose AGPL, unless you are sure that it can be sold -- in this case, ok, keep it proprietary.
+
 {% capture fig_img %}
 ![Pragramtic diagram for license choice](https://astrakhantsev.com/assets/images/license_diagram.png)
 {% endcapture %}
@@ -15,9 +17,6 @@ tags:
   {{ fig_img | markdownify | remove: "<p>" | remove: "</p>" }}
   <figcaption>Diagram for pragmatic choice of the most appropriate license</figcaption>
 </figure>
-
-**TL;DR:** if you developed a library, especially for ML/NLP, and it doesn't improve state-of-the-art by dozens of percents, then choose Apache 2.0; if it is an end-user application, choose AGPL, unless you are sure that it can be sold -- in this case, ok, keep it proprietary.
-
 
 There are many [guides](https://opensource.com/law/13/1/which-open-source-software-license-should-i-use) and even [sites](http://choosealicense.com/) to help in choosing a license for your code without understanding of these licenses.
 Obviuosly, these guide have to abstract from details in order to be comprehensible and one or two abstractions can't be well-suited for everyone.
