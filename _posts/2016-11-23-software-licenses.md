@@ -7,9 +7,8 @@ tags:
   - Social science
 ---
 
-
 {% capture fig_img %}
-![Foo](https://astrakhantsev.com/assets/images/license_diagram.jpg)
+![Pragramtic diagram for license choice](https://astrakhantsev.com/assets/images/license_diagram.png)
 {% endcapture %}
 
 <figure>
