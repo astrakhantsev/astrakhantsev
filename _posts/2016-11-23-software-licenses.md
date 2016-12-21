@@ -51,4 +51,4 @@ Sure, you can license your files as MIT and keep Apache license for other files,
 
 And if you do not use Apache libs in your code, then I'd suppose that it is either from the case described in _First of all_-paragraph, or it contains a lot of self-invented wheels. (_BTW, why the invention is so simple in English idiom? For instance, Russians tend to reinvent the bicycle in similar cases._)
 
-**Disclaimer:** of course, I am not a layer. (_BTW, why the corresponding acronym is so popular, while it is so terrible after all?_)
+**Disclaimer:** of course, I am not a lawyer. (_BTW, why the corresponding acronym is so popular, while it is so terrible after all?_)
