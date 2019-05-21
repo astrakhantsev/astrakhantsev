@@ -1,0 +1,12 @@
+_id: 60a021e0-7a6a-11e9-b4f4-634ae1af6d00
+message: >-
+  Hi Nikita, I just tried using word2vec scala with the spanish fast text
+  embeddings from https://fasttext.cc/docs/en/crawl-vectors.html, and it seems
+  the model is not loaded properly. I can't tell what format the vectors are
+  supposed to have from looking at the code. Have you ever come across this
+  problem. Any advice would be much appreciated.
+name: Boris
+email: 27abac2b2737148e6d83f8c40abebc02
+url: ''
+hidden: ''
+date: '2019-05-19T19:14:52.223Z'
